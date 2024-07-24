@@ -1,4 +1,4 @@
-package Items;
+package items;
 
 public class Square {
 
@@ -15,8 +15,11 @@ public class Square {
 		this.side = side;
 	}// End of preferred constructor
 	
+	// End of Constructors
+	
 	
 	// Getters & Setters
+	
 	/**
 	 * Gets the side
 	 * @return side

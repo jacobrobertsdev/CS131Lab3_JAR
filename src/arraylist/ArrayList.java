@@ -6,12 +6,15 @@ public class ArrayList<T> {
    	private int currentIndex = 0;
    	private T arrList[];
 	
+   	
+   	// Constructors
+   	
    	@SuppressWarnings("unchecked")
 	public ArrayList(){                                        				  	
 			  
 	arrList = (T[]) new Object[DEFAULT_SIZE];
 	
-    }//end empty-argument constructor 
+    }// End of empty-argument constructor 
 
    	
   @SuppressWarnings("unchecked")
@@ -19,8 +22,10 @@ public class ArrayList<T> {
 	  
 	  arrList = (T[]) new Object[length];
 	  
-    }//end preferred constructor
+    }// End of preferred constructor
 	
+   // End of Constructors
+  
   
   	/**
   	 * Checks the bounds of arrList using DEFAULT_SIZE and currentIndex.
@@ -32,30 +37,39 @@ public class ArrayList<T> {
   	 */
   	public boolean addItem(T item) {
   		
-  		if (currentIndex == 9) {
+  		if (currentIndex == 10) {
   			System.out.println("ArrayList full, item not added.");
   			return false;
   			
   		} else if (currentIndex < 9) {
   			arrList[currentIndex] = item;
-  			System.out.println("Item added successfully at index: " + currentIndex + ".");
-  			System.out.println(DEFAULT_SIZE - (currentIndex + 1) + "slots remaining.");
+  			System.out.println(item + " added successfully at index: " + currentIndex + ".");
+  			System.out.println(DEFAULT_SIZE - (currentIndex + 1) + " slots remaining.");
   			currentIndex++;
   		}
   		
 		return true;
-  	}
+  	}// End of addItem
   	
   	
+  	/**
+  	 * Override toString. Loops arrList calling toString() for each object.
+  	 * Builds and returns the resulting string using StringBuilder
+  	 */
   	@Override
   	public String toString() {
-  		
+  		System.out.println();
 		StringBuilder arrString = new StringBuilder("ArrayList content:\n");
 		arrString.append("==========================================\n");
 		
 		for(int i = 0; i < arrList.length; i++) {
 			
-			arrString.append(i + ": " + arrList[i].toString() + "\n");
+			if(arrList[i] == null) {
+				arrString.append(i + ": " + "null\n");
+
+			} else {
+				arrString.append(i + ": " + arrList[i].toString() + "\n");
+			}
 		}
 
 		arrString.append("==========================================\n");
@@ -64,4 +78,4 @@ public class ArrayList<T> {
   
   
   
-}//end class
+}// End of class
